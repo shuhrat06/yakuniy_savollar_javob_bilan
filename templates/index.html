@@ -87,6 +87,42 @@
             color: #dc2626;
             font-weight: 600;
         }
+        .qa-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .qa-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 18px;
+            padding: 16px;
+            background: #ffffff;
+        }
+
+        .qa-item {
+            border-radius: 14px;
+            padding: 14px;
+            background: #f9fafb;
+        }
+
+        .qa-item + .qa-item {
+            margin-top: 12px;
+        }
+
+        .qa-item strong {
+            display: block;
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 6px;
+        }
+
+        .qa-item p {
+            margin: 0;
+            font-size: 15px;
+            color: #111827;
+        }
+
 
         /* Telefonlar uchun */
         @media (max-width: 480px) {
@@ -117,9 +153,22 @@
 
         <div class="result">
             {% if savollar %}
-                {%for savol in savollar%}
-                    <p>{{savol.savol}}</p>
-                {%endfor%}
+                <div class="qa-list">
+                    {% for savol in savollar %}
+                        <div class="qa-card">
+                            <div class="qa-item savol">
+                                <strong>Savol</strong>
+                                <p>{{ savol.savol }}</p>
+                            </div>
+
+                            <div class="qa-item javob">
+                                <strong>Javob</strong>
+                                <p>{{ savol.javob }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
             {% else %}
                 <span class="not-found">Topilmadi</span>
             {% endif %}

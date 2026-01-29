@@ -2,6 +2,7 @@ from django.db import models
 
 class Savol(models.Model):
     savol=models.TextField()
+    javob=models.TextField()
 
     class Meta:
         verbose_name_plural="Savollar"
